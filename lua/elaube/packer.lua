@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
 	use('tpope/vim-fugitive')
     use('m4xshen/autoclose.nvim')
     use('preservim/nerdtree')
+    use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 
 end)
 
