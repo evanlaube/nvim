@@ -20,5 +20,3 @@ function arrange()
         vim.cmd("NERDTree")
     end
 end
-
-arrange()
