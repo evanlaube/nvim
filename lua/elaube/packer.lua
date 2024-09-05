@@ -55,6 +55,7 @@ return require('packer').startup(function(use)
     use('preservim/nerdtree')
     use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
     use{'folke/todo-comments.nvim', requires = 'nvim-lua/plenary.nvim'}
+    use({"iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end})
 
 end)
 
