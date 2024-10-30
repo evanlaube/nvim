@@ -57,5 +57,14 @@ return require('packer').startup(function(use)
     use{'folke/todo-comments.nvim', requires = 'nvim-lua/plenary.nvim'}
     use({"iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end})
 
+    use({
+	"L3MON4D3/LuaSnip",
+	-- follow latest release.
+	tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+	-- install jsregexp (optional!:).
+	run = "make install_jsregexp"
+    })
+
+
 end)
 
