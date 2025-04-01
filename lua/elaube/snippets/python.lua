@@ -36,5 +36,20 @@ ls.add_snippets("python", {
         t({"", "Purpose: "}), i(3),
         t({"", "'''"}),
         t({"", ""}), -- Go to next line after
-    })
+    }),
+
+     s("eecs348", {
+        t(("'''")),
+        t({"", "Program: EECS Assignment "}), i(1), t((" - ")), i(2),
+        t({"", "Description: "}), i(3),
+        t({"", "Inputs: "}), i(4),
+        t({"", "Output: "}), i(5),
+        t({"", "Collaborators: "}), i(6),
+        t({"", "Other Sources: "}), i(7),
+        t({"", "Author: Evan Laube"}),
+        t({"", ""}), -- Go to next line after
+        f(function() return "Last Modified: " .. util.date() end, {}),
+        t({"", "'''"}),
+        t({"", ""}), -- Go to next line after
+     })
 })
