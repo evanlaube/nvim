@@ -1,5 +1,16 @@
 -- Vimtex settings
-vim.g.vimtex_view_method = 'skim'  -- Use Skim as the PDF viewer (for macOS)
+
+-- Determine pdf viewer based on OS
+local pdfViewer = nil
+
+if vim.fn.executable("skim") == 1 then
+    pdfViewer = "skim"
+elseif vim.fn.executable("zathura") == 1 then
+    pdfViewer = "zathura"
+end
+
+
+vim.g.vimtex_view_method = pdfViewer  -- Use Skim as the PDF viewer (for macOS)
 
 vim.g.vimtex_compiler_method = 'latexmk'
 vim.g.vimtex_compiler_latexmk = {
