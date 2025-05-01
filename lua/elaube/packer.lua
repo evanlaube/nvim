@@ -76,6 +76,7 @@ return require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim'
     use 'godlygeek/tabular'
     use {"akinsho/toggleterm.nvim", tag = "*"}
+    use 'nvim-lualine/lualine.nvim'
 
 end)
 
