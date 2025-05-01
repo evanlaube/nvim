@@ -75,6 +75,7 @@ return require('packer').startup(function(use)
     use 'github/copilot.vim' -- Trying this out for now - not sure how I feel
     use 'lewis6991/gitsigns.nvim'
     use 'godlygeek/tabular'
+    use {"akinsho/toggleterm.nvim", tag = "*"}
 
 end)
 
