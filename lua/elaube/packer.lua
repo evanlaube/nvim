@@ -77,6 +77,7 @@ return require('packer').startup(function(use)
     use 'godlygeek/tabular'
     use {"akinsho/toggleterm.nvim", tag = "*"}
     use 'nvim-lualine/lualine.nvim'
+    use 'numToStr/Comment.nvim'
 
 end)
 
