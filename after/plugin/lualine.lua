@@ -36,8 +36,8 @@ require('lualine').setup {
     lualine_a = {{'mode', cond=hisw}},
     lualine_b = {{'branch', cond=hisw}, {'diff', cond=hisw}, {'diagnostics', cond=hisw}},
     lualine_c = {{'filename'}},
-    lualine_x = {{date, cond=hisw}, {clock, cond=hisw}, {'encoding', cond=hisw}, {'fileformat', cond=hisw}, {'filetype', cond=hisw}},
-    lualine_y = {{'progress', cond=hisw}},
+    lualine_x = {{date, cond=hisw}, {clock, cond=hisw}},
+    lualine_y = {{'filetype', cond=hisw}},
     lualine_z = {{'location', cond=hisw}}
   },
   inactive_sections = {
