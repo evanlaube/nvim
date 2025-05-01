@@ -57,3 +57,7 @@ lsp.setup()
 vim.diagnostic.config({
     virtual_text = true
 })
+
+require('lspconfig').clangd.setup({
+  cmd = { "clangd", "--log=verbose", "--pretty" },
+})

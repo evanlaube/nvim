@@ -52,7 +52,13 @@ return require('packer').startup(function(use)
 	use("mbbill/undotree")
 	use('tpope/vim-fugitive')
     use('m4xshen/autoclose.nvim')
-    use('preservim/nerdtree')
+    -- use('preservim/nerdtree')
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional, for file icons
+        },
+    }
     use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
     use{'folke/todo-comments.nvim', requires = 'nvim-lua/plenary.nvim'}
     use({"iamcco/markdown-preview.nvim", run = function() vim.fn["mkdp#util#install"]() end})
@@ -66,6 +72,9 @@ return require('packer').startup(function(use)
     })
     
     use 'lervag/vimtex'
+    use 'github/copilot.vim' -- Trying this out for now - not sure how I feel
+    use 'lewis6991/gitsigns.nvim'
+    use 'godlygeek/tabular'
 
 end)
 
