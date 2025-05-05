@@ -7,7 +7,7 @@ return require('packer').startup(function(use)
 	-- Packer can manage itself
 	use 'wbthomason/packer.nvim'
 	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.0',
+		'nvim-telescope/telescope.nvim', tag = '0.1.x',
 		-- or                            , branch = '0.1.x',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
@@ -78,6 +78,7 @@ return require('packer').startup(function(use)
     use {"akinsho/toggleterm.nvim", tag = "*"}
     use 'nvim-lualine/lualine.nvim'
     use 'numToStr/Comment.nvim'
+    use 'laytan/cloak.nvim'
 
 end)
 
