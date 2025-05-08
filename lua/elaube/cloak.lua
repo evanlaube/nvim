@@ -1,4 +1,5 @@
 
+
 require('cloak').setup({
   enabled = true,
   cloak_character = '*',
