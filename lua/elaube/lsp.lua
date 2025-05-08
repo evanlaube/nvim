@@ -1,10 +1,35 @@
 
+-- Luasnip config
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/elaube/snippets/" })
+
+local ls = require('luasnip')
+
+-- Tab to jump to the next placeholder
+vim.keymap.set({"i", "s"}, "<Tab>", function()
+    if ls.expand_or_jumpable() then
+        return "<Cmd>lua require('luasnip').expand_or_jump()<CR>"
+    else
+        return "<Tab>"
+    end
+end, {expr = true, silent = true})
+
+-- Shift-Tab to jump to the previous placeholder
+vim.keymap.set({"i", "s"}, "<S-Tab>", function()
+    if ls.jumpable(-1) then
+        return "<Cmd>lua require('luasnip').jump(-1)<CR>"
+    else
+        return "<S-Tab>"
+    end
+end, {expr = true, silent = true})
 
 local cmp = require('cmp')
 
 cmp.setup({
     sources = {
-        {name = 'nvim_lsp'},
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+        { name = 'buffer' },
+        { name = 'path' },
     },
     mapping = cmp.mapping.preset.insert({
         ['<C-Space>'] = cmp.mapping.complete(),
@@ -30,6 +55,9 @@ cmp.setup({
     snippet = {
         expand = function(args)
             vim.snippet.expand(args.body)
+        end,
+        expand = function(args)
+            require('luasnip').lsp_expand(args.body)
         end,
     },
 })

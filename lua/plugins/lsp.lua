@@ -6,6 +6,16 @@ return {
         opts = {},
     },
 
+    -- Luasnip
+    {
+        "L3MON4D3/LuaSnip",
+        run = "make install_jsregexp",
+    },
+
+    {
+        "saadparwaiz1/cmp_luasnip"
+    },
+
     -- Autocompletion
     {
         'hrsh7th/nvim-cmp',
