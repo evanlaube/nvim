@@ -7,4 +7,7 @@ return {
         return { "treesitter", "indent" }
       end,
     },
+    config = function ()
+        require('elaube.ufo')
+    end
 }
