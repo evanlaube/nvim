@@ -1,5 +1,3 @@
--- Vimtex settings
-
 -- Determine pdf viewer based on OS
 local pdfViewer = nil
 
