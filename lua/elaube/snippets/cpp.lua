@@ -6,6 +6,7 @@ local i = ls.insert_node
 local f = ls.function_node
 local util = require('elaube.scripts.util')
 
+
 ls.add_snippets("cpp", {
      s("eecs348", {
         t(("/*")),
@@ -20,5 +21,22 @@ ls.add_snippets("cpp", {
         f(function() return " * Date Created: " .. util.date() end, {}),
         t({"", " */"}),
         t({"", ""}), -- Go to next line after
-     })
+     }),
+    s({ trig = "bar", regTrig = false }, {
+    f(function(_, snip)
+        local line = vim.api.nvim_get_current_line()
+        local indent = line:match('^%s*')
+        local indent_width = vim.fn.strdisplaywidth(indent)
+        local bar_length = math.max(0, 78 - indent_width)
+        snip.bar_length = bar_length  -- Store for later use
+        return "/*" .. string.rep("=", bar_length)
+    end),
+    t({ "", "" }),
+    i(1, "Section Title"),
+    t({ "", "" }),
+    f(function(_, snip)
+        local bar_length = snip.bar_length or 73  -- Fallback to default
+        return string.rep("=", bar_length) .. "*/"
+    end),
+})
 })
