@@ -3,6 +3,7 @@
 require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/elaube/snippets/" })
 
 local ls = require('luasnip')
+local lsp = require('lspconfig')
 
 -- Tab to jump to the next placeholder
 vim.keymap.set({"i", "s"}, "<Tab>", function()
@@ -64,7 +65,6 @@ cmp.setup({
 
 local lsp_defaults = require('lspconfig').util.default_config
 
-
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
 -- This should be executed before you configure any language server
 lsp_defaults.capabilities = vim.tbl_deep_extend(
@@ -87,7 +87,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
         vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
         vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-        vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+        vim.keymap.set('n', 'gR', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
         vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
         vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
     end,
@@ -114,7 +114,7 @@ require('mason-lspconfig').setup({
     }
 })
 
-require('lspconfig').lua_ls.setup({
+lsp.lua_ls.setup({
   settings = {
     Lua = {
       diagnostics = {
@@ -123,3 +123,8 @@ require('lspconfig').lua_ls.setup({
     },
   },
 })
+
+lsp.glsl_analyzer.setup({
+    filetypes = { "glsl", "vert", "frag", "comp" },
+})
+
