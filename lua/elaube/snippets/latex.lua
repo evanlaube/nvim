@@ -10,4 +10,7 @@ ls.add_snippets("tex", {
   ls.snippet("348inclass", {
       ls.text_node(util.read_template("348inclass.tex")),
   }),
+  ls.snippet("468inclass", {
+      ls.text_node(util.read_template("468inclass.tex")),
+  }),
 })
