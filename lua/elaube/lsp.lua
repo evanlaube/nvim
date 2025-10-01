@@ -128,3 +128,15 @@ lsp.glsl_analyzer.setup({
     filetypes = { "glsl", "vert", "frag", "comp" },
 })
 
+require('lspconfig').clangd.setup {
+  cmd = {
+    "clangd",
+    "--log=verbose",
+    "--header-insertion=never",
+    "--fallback-style=Google",
+    "--tweaks=-xc++",
+    "--tweaks=-std=c++20"
+  },
+}
+
+
