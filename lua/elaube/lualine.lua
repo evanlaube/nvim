@@ -54,3 +54,10 @@ require('lualine').setup {
   inactive_winbar = {},
   extensions = {}
 }
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "Avante*",
+    callback = function()
+        require('lualine').hide({ unhide = false })
+    end
+})

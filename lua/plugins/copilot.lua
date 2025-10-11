@@ -14,11 +14,24 @@ return {
             require("elaube.copilot").setup_copilot_cmp()
         end,
     },
+    -- {
+    --     "CopilotC-Nvim/CopilotChat.nvim",
+    --     dependencies = { "plenary.nvim" },
+    --     config = function()
+    --         require("elaube.copilot").setup_copilot_chat()
+    --     end,
+    -- },
     {
-        "CopilotC-Nvim/CopilotChat.nvim",
-        dependencies = { "plenary.nvim" },
+        "yetone/avante.nvim",
+        event = "VeryLazy",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "MunifTanjim/nui.nvim",
+            "nvim-telescope/telescope.nvim",
+            "echasnovski/mini.icons",
+        },
         config = function()
-            require("elaube.copilot").setup_copilot_chat()
+            require("elaube.copilot").setup_avante()
         end,
-    },
+    }
 }

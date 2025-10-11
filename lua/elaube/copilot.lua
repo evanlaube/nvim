@@ -50,4 +50,26 @@ function M.setup_copilot_chat()
     end, { desc = "Toggle Copilot Chat" })
 end
 
+function M.setup_avante()
+    require("avante").setup({
+        provider = "copilot",
+        behavior = {
+            auto_context = true,
+            remember_context = true
+        },
+        ui = {
+            layout = "float",
+            width = 0.45,
+            show_token_count = true,
+        },
+        mappings = {
+            open_chat = "<leader>aa",
+            ask_selection = "<leader>as",
+            apply_edit = "<leader>ae",
+            toggle_context = "<leader>ac",
+            close = "<leader>aq"
+        },
+    })
+end
+
 return M
