@@ -3,7 +3,23 @@
 require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/elaube/snippets/" })
 
 local ls = require('luasnip')
+
+-- Use old method of lspconfig, and mute deprecation warning
+-- TODO: This needs to be revisited later and port all users of lsp to 
+-- the new vim.lsp.* API.
+-- This is mostly working in the current version, but some aspects break
+-- compatibility with current lsp servers. Wait until this has been improved.
 local lsp = require('lspconfig')
+vim.g.lspconfig_use_deprecated = true
+
+-- Mute lspconfig deprecation warnings
+local notify = vim.notify
+vim.notify = function(msg, ...)
+  if msg:match("lspconfig") then
+    return
+  end
+  notify(msg, ...)
+end
 
 -- Tab to jump to the next placeholder
 vim.keymap.set({"i", "s"}, "<Tab>", function()
@@ -54,9 +70,6 @@ cmp.setup({
         end, { "i", "s" }),
     }),
     snippet = {
-        expand = function(args)
-            vim.snippet.expand(args.body)
-        end,
         expand = function(args)
             require('luasnip').lsp_expand(args.body)
         end,
