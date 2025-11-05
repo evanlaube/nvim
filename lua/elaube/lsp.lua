@@ -152,4 +152,6 @@ require('lspconfig').clangd.setup {
   },
 }
 
-
+vim.keymap.set("n", "<leader>d", function()
+  vim.diagnostic.open_float(nil, { focus = false })
+end, { desc = "Show diagnostics under cursor" })

@@ -9,3 +9,11 @@ vim.api.nvim_set_keymap("n", "<leader>sa", "zg", { noremap = true, silent = true
 
 -- Yank to system clipboard
 vim.api.nvim_set_keymap("n", "<leader>y", "\"+y", { noremap = true, silent = true })
+
+-- Disable auto-indent after opening braces
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+  callback = function()
+    vim.bo.indentexpr = ""
+  end,
+})

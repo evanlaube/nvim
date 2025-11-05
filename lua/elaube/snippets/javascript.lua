@@ -12,7 +12,7 @@ ls.add_snippets("html", {
             local line = vim.api.nvim_get_current_line()
             local indent = line:match('^%s*')
             local indent_width = vim.fn.strdisplaywidth(indent)
-            local bar_length = math.max(0, 78 - indent_width)
+            local bar_length = math.max(0, 68 - indent_width)
             snip.bar_length = bar_length  -- Store for later use
             return "/*" .. string.rep("=", bar_length)
         end),
@@ -20,7 +20,27 @@ ls.add_snippets("html", {
         i(1, "Section Title"),
         t({ "", "" }),
         f(function(_, snip)
-            local bar_length = snip.bar_length or 73  -- Fallback to default
+            local bar_length = snip.bar_length or 63  -- Fallback to default
+            return string.rep("=", bar_length) .. "*/"
+        end),
+    }),
+})
+
+ls.add_snippets("javascript", {
+    s({ trig = "bar", regTrig = false }, {
+        f(function(_, snip)
+            local line = vim.api.nvim_get_current_line()
+            local indent = line:match('^%s*')
+            local indent_width = vim.fn.strdisplaywidth(indent)
+            local bar_length = math.max(0, 68 - indent_width)
+            snip.bar_length = bar_length  -- Store for later use
+            return "/*" .. string.rep("=", bar_length)
+        end),
+        t({ "", "" }),
+        i(1, "Section Title"),
+        t({ "", "" }),
+        f(function(_, snip)
+            local bar_length = snip.bar_length or 63  -- Fallback to default
             return string.rep("=", bar_length) .. "*/"
         end),
     }),
