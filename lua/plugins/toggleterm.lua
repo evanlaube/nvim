@@ -11,7 +11,8 @@ return {
                     border = "curved"
                 },
             })
+
+            require("elaube.lazygit")
         end
     }
 }
-

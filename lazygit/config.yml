@@ -1,0 +1,4 @@
+gui:
+  sideBySideDiff: true
+  showCommandLog: true
+  showIcons: true
