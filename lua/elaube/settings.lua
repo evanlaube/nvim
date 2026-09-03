@@ -25,8 +25,6 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
-vim.g.mapleader = " "
-
 vim.opt.foldcolumn = "0"
 
 vim.api.nvim_create_autocmd("TextYankPost", {
